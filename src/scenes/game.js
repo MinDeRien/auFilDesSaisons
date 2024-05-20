@@ -58,6 +58,8 @@ export function GameScene() {
     k.loadSprite("panneau", "sprites/panneau.png");
     k.loadSprite("tonneaux", "sprites/tonneaux.png");
     k.loadSprite("silo", "sprites/silo.png");
+    k.loadSprite("tunnel_back","sprites/tunnel_back.png");
+    k.loadSprite("tunnel_front","sprites/tunnel_front.png");
 
     // add top and bottom background
     for (var i = 1; i <= bg_nb; i++) {
@@ -116,19 +118,50 @@ export function GameScene() {
 
         // generate new month
         arbre_saison1=k.add([
-            pos(500,392),
+            pos(900,392),
             sprite(`arbre_${monthIdx+1}`),
             anchor('bot'),
+            scale(0.8),
             z(1),
             move(LEFT, time_speed),
         ]);
         arbre_saison2=k.add([
-            pos(500,932),
+            pos(900,932),
             sprite(`arbre_${monthIdx+1}`),
             anchor('bot'),
+            scale(0.8),
             z(1),
             move(LEFT, time_speed),
         ]);
+        tunnel_b_1=k.add([
+            pos(1800,392),
+            sprite('tunnel_back'),
+            anchor('bot'),
+            z(0),
+            move(LEFT,time_speed),
+        ]);
+        tunnel_f_1=k.add([
+            pos(1800,392),
+            sprite('tunnel_front'),
+            anchor('bot'),
+            z(5),
+            move(LEFT,time_speed),
+        ]);
+        tunnel_b_2=k.add([
+            pos(1800,932),
+            sprite('tunnel_back'),
+            anchor('bot'),
+            z(0),
+            move(LEFT,time_speed),
+        ]);
+        tunnel_f_2=k.add([
+            pos(1800,932),
+            sprite('tunnel_front'),
+            anchor('bot'),
+            z(5),
+            move(LEFT,time_speed),
+        ]);
+
         arbre_saison1.flipX = true;
         arbre_saison2.flipX = true;
 
@@ -252,7 +285,7 @@ export function GameScene() {
     k.add([sprite("bandeau"), pos(960, 540), anchor("center"), z(7)])
     k.add([sprite("tonneaux"), pos(84, 530), anchor("bot"), z(6)])
     k.add([sprite("panneau"), pos(84, 395), anchor("bot"), z(5)])
-    k.add([sprite("silo"), pos(84,1090), anchor("bot"), z(4)])
+    k.add([sprite("silo"), pos(84,1090), anchor("bot"), z(6)])
 
     players.forEach((player)=>{
         player.sprite.onUpdate(() => {
