@@ -158,7 +158,7 @@ export function GameScene() {
             pos(1800,932),
             sprite('tunnel_front'),
             anchor('bot'),
-            z(5),
+            z(6),
             move(LEFT,time_speed),
         ]);
 
@@ -168,17 +168,19 @@ export function GameScene() {
     };
 
     loadAseprite("player", "sprites/player1.png", "sprites/player1.json");
-    //les arbres
+    //on charge les arbres
     loadSprite("arbre", "sprites/arbre/arbre.png");
     loadSprite("cerise", "sprites/arbre/cerise.png");
     loadSprite("pomme", "sprites/arbre/pomme.png");
     loadSprite("poire", "sprites/arbre/poire.png");
     loadSprite("prune", "sprites/arbre/prune.png");
     loadSprite("abricot", "sprites/arbre/abricot.png");
-    loadSprite("kiwi","sprites/arbre/kiwi.png");
+    loadSprite("kiwi", "sprites/arbre/kiwi.png");
     loadSprite("nectarine","sprites/arbre/nectarine.png");
+    loadSprite("figue", "sprites/arbre/figue.png");
+    loadSprite("peche", "sprites/arbre/peche.png");
 
-    //les buissons
+    //on charge les buissons
     loadSprite("buisson", "sprites/buisson/buisson.png");
     loadSprite("buisson_cucurb", "sprites/buisson/buisson_cucurb.png");
     loadSprite("fraise", "sprites/buisson/fraise.png");
@@ -197,13 +199,23 @@ export function GameScene() {
     loadSprite("courge", "sprites/buisson/courge.png");
     loadSprite("concombre", "sprites/buisson/concombre.png");
 
-    //les racines
+    //on charge les racines
     loadSprite("carotte", "sprites/racine/carotte.png");
     loadSprite("carotte_trou", "sprites/racine/carotte_trou.png");
     loadSprite("oignon","sprites/racine/oignon.png");
     loadSprite("oignon_trou", "sprites/racine/oignon_trou.png");
-
-    //les pousses
+    loadSprite("endive","sprites/racine/endive.png");
+    loadSprite("endive_trou", "sprites/racine/endive_trou.png");
+    loadSprite("ail","sprites/racine/ail.png");
+    loadSprite("ail_trou","sprites/racine/ail_trou.png");
+    loadSprite("betterave","sprites/racine/betterave.png");
+    loadSprite("betterave_trou","sprites/racine/betterave_trou.png");
+    loadSprite("brocoli","sprites/racine/brocoli.png");
+    loadSprite("brocoli_trou","sprites/racine/brocoli_trou.png");
+    loadSprite("chouFleur","sprites/racine/chouFleur.png");
+    loadSprite("chouFleur_trou","sprites/racine/chouFleur_trou.png");
+    
+    //on charge les pousses
     loadSprite("pousse", "sprites/pousse.png");
     loadSprite("arbre_pousse", "sprites/arbre_pousse.png");
     loadSprite("buisson_pousse","sprites/buisson_pousse.png");
@@ -217,6 +229,8 @@ export function GameScene() {
     collectables["abricot"] = new Colletable("abricot", "arbre", 6, 9, 10, 0);
     collectables["kiwi"] = new Colletable("kiwi", "arbre", 9, 11, 8, 0);
     collectables["nectarine"] =new Colletable("nectarine", "arbre", 7, 8, 10, 0);
+    collectables["figue"] =new Colletable("figue","arbre",7, 9, 45,0);
+    collectables["peche"] =new Colletable("peche","arbre", 7, 8, 6, 0);
 
     //buissons
     collectables["fraise"] = new Colletable("fraise", "buisson", 5, 9, 18, 0);
@@ -237,20 +251,21 @@ export function GameScene() {
     //racines
     collectables["carotte"] = new Colletable("carotte", "carotte_trou",5,11,3,50);
     collectables["oignon"]= new Colletable("oignon","oignon_trou", 6,10,2,50);//on verra si l'offset fonctionne, à voir
-
-
-    //todo collectables
-    collectables["figue"] =new Colletable("figue","arbre",7, 9, 45,0);
-    collectables["peche"] =new Colletable("peche","arbre", 7, 8, 6, 0);
-
-    
-
+    collectables["endive"] =new Colletable("endive","endive_trou", 11, 12, 5, 0);
+    collectables["endive2"] =new Colletable("endive","endive_trou", 1, 4, 5, 0);
     collectables["ail"] =new Colletable("ail","ail_trou", 4, 5, 13, 0);
     collectables["ail2"] =new Colletable("ail","ail_trou", 7, 8, 13, 0);
     collectables["betterave"] =new Colletable("betterave","betterave_trou", 7, 11, 4, 0);
     collectables["brocoli"] =new Colletable("brocoli","brocoli_trou", 5, 11, 7, 0);
-    collectables["chou"] =new Colletable("chou","chou_trou", 4, 12, 4, 0);
     collectables["chouFleur"] =new Colletable("chouFleur","chouFleur_trou", 5, 11, 5, 0);
+
+
+    //todo collectables
+    
+    
+    
+    collectables["chou"] =new Colletable("chou","chou_trou", 4, 12, 4, 0);
+    
     collectables["epinard"] =new Colletable("epinard","epinard_trou", 3, 6, 8, 0);
     collectables["epinard2"] =new Colletable("epinard","epinard_trou", 10, 12, 8, 0);
     collectables["fenouil"] =new Colletable("fenouil","fenouil_trou", 5, 11, 6, 0);
@@ -260,9 +275,9 @@ export function GameScene() {
     collectables["salade"] =new Colletable("salade","salade_trou", 4, 11, 3, 0);
     collectables["chouBruxelles3"] =new Colletable("chouBruxelles","chouBruxelles_trou", 12, 12, 8, 0);
     
+
     collectables["maisDoux"] =new Colletable("maisDoux","maisDoux_base", 8, 10, 6, 0);
-    collectables["endive"] =new Colletable("endive","endive_racine", 11, 12, 5, 0);
-    collectables["endive2"] =new Colletable("endive","endive_racine", 1, 4, 5, 0);
+    
     collectables["asperge"] =new Colletable("asperge","asperge_racine", 4, 6, 22, 0);
     collectables["chouBruxelles2"] =new Colletable("chouBruxelles","chouBruxelles_base", 9, 11, 7, 0);
     collectables["chouBruxelles1"] =new Colletable("chouBruxelles","chouBruxelles_base", 1, 3, 8, 0);
@@ -279,13 +294,13 @@ export function GameScene() {
     dateText = text("")
     player1ScoreText = text("0")
     player2ScoreText = text("0")
-    k.add([dateText, pos(960, 540),  anchor("center"), z(8)])
-    k.add([player1ScoreText, pos(85, 440), anchor("center"), z(8), color(0, 0, 0), rotate(-5)])
-    k.add([player2ScoreText, pos(85, 980), anchor("center"), z(8), color(0, 0, 0), rotate(-5)])
-    k.add([sprite("bandeau"), pos(960, 540), anchor("center"), z(7)])
-    k.add([sprite("tonneaux"), pos(84, 530), anchor("bot"), z(6)])
-    k.add([sprite("panneau"), pos(84, 395), anchor("bot"), z(5)])
-    k.add([sprite("silo"), pos(84,1090), anchor("bot"), z(6)])
+    k.add([dateText, pos(960, 540),  anchor("center"), z(9)])
+    k.add([player1ScoreText, pos(85, 440), anchor("center"), z(9), color(0, 0, 0), rotate(-5)])
+    k.add([player2ScoreText, pos(85, 980), anchor("center"), z(9), color(0, 0, 0), rotate(-5)])
+    k.add([sprite("bandeau"), pos(960, 540), anchor("center"), z(8)])
+    k.add([sprite("tonneaux"), pos(84, 530), anchor("bot"), z(7)])
+    k.add([sprite("panneau"), pos(84, 395), anchor("bot"), z(6)])
+    k.add([sprite("silo"), pos(84,1090), anchor("bot"), z(7)])
 
     players.forEach((player)=>{
         player.sprite.onUpdate(() => {
