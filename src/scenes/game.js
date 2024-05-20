@@ -194,7 +194,6 @@ export function GameScene() {
     loadSprite("poivron", "sprites/buisson/poivron.png");
     loadSprite("haricot", "sprites/buisson/haricot.png");
     loadSprite("aubergine", "sprites/buisson/aubergine.png");
-    loadSprite("buisson_cucurb", "sprites/buisson/buisson_cucurb.png");
     loadSprite("courgette", "sprites/buisson/courgette.png");
     loadSprite("courge", "sprites/buisson/courge.png");
     loadSprite("concombre", "sprites/buisson/concombre.png");
@@ -214,6 +213,12 @@ export function GameScene() {
     loadSprite("brocoli_trou","sprites/racine/brocoli_trou.png");
     loadSprite("chouFleur","sprites/racine/chouFleur.png");
     loadSprite("chouFleur_trou","sprites/racine/chouFleur_trou.png");
+    loadSprite("chou","sprites/racine/chou.png");
+    loadSprite("chou_trou","sprites/racine/chou_trou.png");
+    loadSprite("epinard","sprites/racine/epinard.png");
+    loadSprite("epinard_trou","sprites/racine/epinard_trou.png");
+    loadSprite("fenouil","sprites/racine/fenouil.png");
+    loadSprite("fenouil_trou","sprites/racine/fenouil_trou.png");
     
     //on charge les pousses
     loadSprite("pousse", "sprites/pousse.png");
@@ -258,17 +263,14 @@ export function GameScene() {
     collectables["betterave"] =new Colletable("betterave","betterave_trou", 7, 11, 4, 0);
     collectables["brocoli"] =new Colletable("brocoli","brocoli_trou", 5, 11, 7, 0);
     collectables["chouFleur"] =new Colletable("chouFleur","chouFleur_trou", 5, 11, 5, 0);
-
+    collectables["chou"] =new Colletable("chou","chou_trou", 4, 12, 4, 0);
+    collectables["epinard"] =new Colletable("epinard","epinard_trou", 3, 6, 8, 0);
+    collectables["epinard2"] =new Colletable("epinard","epinard_trou", 10, 12, 8, 0);
+    collectables["fenouil"] =new Colletable("fenouil","fenouil_trou", 5, 11, 6, 0);
 
     //todo collectables
     
     
-    
-    collectables["chou"] =new Colletable("chou","chou_trou", 4, 12, 4, 0);
-    
-    collectables["epinard"] =new Colletable("epinard","epinard_trou", 3, 6, 8, 0);
-    collectables["epinard2"] =new Colletable("epinard","epinard_trou", 10, 12, 8, 0);
-    collectables["fenouil"] =new Colletable("fenouil","fenouil_trou", 5, 11, 6, 0);
     collectables["laitue"] =new Colletable("laitue","laitue_trou", 4, 11, 6, 0);
     collectables["poireau"] =new Colletable("poireau","poireau_trou", 1, 12, 5, 0);
     collectables["patate"] =new Colletable("patate","patate_trou", 6, 10, 2, 0);
