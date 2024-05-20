@@ -168,6 +168,7 @@ export function GameScene() {
     };
 
     loadAseprite("player", "sprites/player1.png", "sprites/player1.json");
+    //CHARGEMENT DES PLANTES
     //on charge les arbres
     loadSprite("arbre", "sprites/arbre/arbre.png");
     loadSprite("cerise", "sprites/arbre/cerise.png");
@@ -219,7 +220,17 @@ export function GameScene() {
     loadSprite("epinard_trou","sprites/racine/epinard_trou.png");
     loadSprite("fenouil","sprites/racine/fenouil.png");
     loadSprite("fenouil_trou","sprites/racine/fenouil_trou.png");
-    
+    loadSprite("laitue","sprites/racine/laitue.png");
+    loadSprite("laitue_trou","sprites/racine/laitue_trou.png");
+    loadSprite("salade","sprites/racine/salade.png");
+    loadSprite("salade_trou","sprites/racine/salade_trou.png");
+    loadSprite("poireau","sprites/racine/poireau.png");
+    loadSprite("poireau_trou","sprites/racine/poireau_trou.png");
+    loadSprite("asperge","sprites/racine/asperge.png");
+    loadSprite("asperge_racine","sprites/racine/asperge_racine.png");
+    loadSprite("patate","sprites/racine/patate.png");
+    loadSprite("patate_trou","sprites/racine/patate_trou.png");
+
     //on charge les pousses
     loadSprite("pousse", "sprites/pousse.png");
     loadSprite("arbre_pousse", "sprites/arbre_pousse.png");
@@ -227,7 +238,7 @@ export function GameScene() {
 
     collectables = {};
     //arbres
-    collectables["cerise"] = new Colletable("cerise", "arbre", 6, 8, 14, 0); //rappel: "fruit", "parent", start, end, score, offset
+    collectables["cerise"] = new Colletable("cerise", "arbre", 6, 8, 14, 0); //rappel: "fruit", "parent", start, end, score (CHF/kg), offset
     collectables["pomme"] = new Colletable("pomme", "arbre", 6, 10, 4, 0);
     collectables["poire"] = new Colletable("poire", "arbre", 6, 11, 4, 0);
     collectables["prune"] = new Colletable("prune", "arbre", 8, 9, 6, 0);
@@ -255,7 +266,7 @@ export function GameScene() {
 
     //racines
     collectables["carotte"] = new Colletable("carotte", "carotte_trou",5,11,3,50);
-    collectables["oignon"]= new Colletable("oignon","oignon_trou", 6,10,2,50);//on verra si l'offset fonctionne, à voir
+    collectables["oignon"]= new Colletable("oignon","oignon_trou", 6,10,2,50);
     collectables["endive"] =new Colletable("endive","endive_trou", 11, 12, 5, 0);
     collectables["endive2"] =new Colletable("endive","endive_trou", 1, 4, 5, 0);
     collectables["ail"] =new Colletable("ail","ail_trou", 4, 5, 13, 0);
@@ -267,22 +278,21 @@ export function GameScene() {
     collectables["epinard"] =new Colletable("epinard","epinard_trou", 3, 6, 8, 0);
     collectables["epinard2"] =new Colletable("epinard","epinard_trou", 10, 12, 8, 0);
     collectables["fenouil"] =new Colletable("fenouil","fenouil_trou", 5, 11, 6, 0);
-
-    //todo collectables
-    
-    
     collectables["laitue"] =new Colletable("laitue","laitue_trou", 4, 11, 6, 0);
     collectables["poireau"] =new Colletable("poireau","poireau_trou", 1, 12, 5, 0);
-    collectables["patate"] =new Colletable("patate","patate_trou", 6, 10, 2, 0);
     collectables["salade"] =new Colletable("salade","salade_trou", 4, 11, 3, 0);
-    collectables["chouBruxelles3"] =new Colletable("chouBruxelles","chouBruxelles_trou", 12, 12, 8, 0);
-    
+    collectables["asperge"] =new Colletable("asperge","asperge_racine", 4, 6, 22, 0);
+    collectables["patate"] =new Colletable("patate","patate_trou", 6, 10, 2, 0);
 
+    //todo collectables 
+    //to draw
+    
     collectables["maisDoux"] =new Colletable("maisDoux","maisDoux_base", 8, 10, 6, 0);
     
-    collectables["asperge"] =new Colletable("asperge","asperge_racine", 4, 6, 22, 0);
     collectables["chouBruxelles2"] =new Colletable("chouBruxelles","chouBruxelles_base", 9, 11, 7, 0);
     collectables["chouBruxelles1"] =new Colletable("chouBruxelles","chouBruxelles_base", 1, 3, 8, 0);
+    collectables["chouBruxelles3"] =new Colletable("chouBruxelles","chouBruxelles_trou", 12, 12, 8, 0);
+    //brussel sprouts and corn will need a separate canvas; very tall.
 
     player1_sprite = add([pos(player_startX, 395), sprite("player"), z(5), anchor("bot")])
     player1_sprite.play("idle")
