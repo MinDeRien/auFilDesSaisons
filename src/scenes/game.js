@@ -298,7 +298,7 @@ export function GameScene() {
     loadSprite("tt_raisinet","sprites/icones/tt_raisinet.png");
     loadSprite("tt_salade","sprites/icones/tt_salade.png");
     loadSprite("tt_tomate","sprites/icones/tt_tomate.png");
-    
+    loadSprite("tt_test","sprites/icones/tt_test.png");
     collectables = {};
     //arbres
     collectables["cerise"] = new Collectable("cerise", "arbre", "tt_cerise", 6, 8, 14, 0); //rappel: "fruit", "parent", "icon", start, end, score (CHF/kg), offset
