@@ -12,10 +12,22 @@ class Player {
     }
   }
 
-class Colletable {
-    constructor(sprite, parent_sprite, start_month, end_month, points, deltaY){
+class Collectable {
+    constructor(sprite, parent_sprite, icon_sprite, start_month, end_month, points, deltaY){
         this.sprite = sprite;
         this.parent_sprite = parent_sprite;
+        this.icon_sprite = icon_sprite;
+        this.start_month = start_month;
+        this.end_month = end_month;
+        this.points = points;
+        this.deltaY = deltaY;
+    }
+}
+
+class Seed {
+    constructor(sprite, icon_sprite, start_month, end_month, points, deltaY){
+        this.sprite = sprite;
+        this.icon_sprite = icon_sprite;
         this.start_month = start_month;
         this.end_month = end_month;
         this.points = points;
@@ -230,69 +242,122 @@ export function GameScene() {
     loadSprite("asperge_racine","sprites/racine/asperge_racine.png");
     loadSprite("patate","sprites/racine/patate.png");
     loadSprite("patate_trou","sprites/racine/patate_trou.png");
-
+    loadSprite("mais","sprites/racine/mais.png");
+    loadSprite("mais_trou","sprites/racine/mais_trou.png");
+    //brusselSproutHell
+    loadSprite("chouBruxellesPetit","sprites/racine/chouBruxPetit.png");
+    loadSprite("chouBruxellesPetit_base","sprites/racine/chouBruxPetit_base.png");
+    loadSprite("chouBruxellesMoyen","sprites/racine/chouBruxMoyen.png");
+    loadSprite("chouBruxellesMoyen_base","sprites/racine/chouBruxMoyen_base.png");
+    loadSprite("chouBruxellesGrand","sprites/racine/chouBruxGrand.png");
+    loadSprite("chouBruxellesGrand_base","sprites/racine/chouBruxGrand_base.png");
+    loadSprite("chouBruxellesGrandFin","sprites/racine/chouBruxGrandFin.png");
+    loadSprite("chouBruxellesGrandFin_trou","sprites/racine/chouBruxGrandFin_trou.png");
     //on charge les pousses
     loadSprite("pousse", "sprites/pousse.png");
     loadSprite("arbre_pousse", "sprites/arbre_pousse.png");
     loadSprite("buisson_pousse","sprites/buisson_pousse.png");
 
+    //charger les tooltip
+    loadSprite("tt_abricot","sprites/icones/tt_abricot.png");
+    loadSprite("tt_ail","sprites/icones/tt_ail.png");
+    loadSprite("tt_asperge","sprites/icones/tt_asperge.png");
+    loadSprite("tt_aubergine","sprites/icones/tt_aubergine.png");
+    loadSprite("tt_betterave","sprites/icones/tt_betterave.png");
+    loadSprite("tt_brocoli","sprites/icones/tt_brocoli.png");
+    loadSprite("tt_carotte","sprites/icones/tt_carotte.png");
+    loadSprite("tt_cassis","sprites/icones/tt_cassis.png");
+    loadSprite("tt_cerise","sprites/icones/tt_cerise.png");
+    loadSprite("tt_chou","sprites/icones/tt_chou.png");
+    loadSprite("tt_chouBruxelles","sprites/icones/tt_chouBruxelles.png");
+    loadSprite("tt_concombre","sprites/icones/tt_concombre.png");
+    loadSprite("tt_courge","sprites/icones/tt_courge.png");
+    loadSprite("tt_courgette","sprites/icones/tt_courgette.png");
+    loadSprite("tt_endive","sprites/icones/tt_endive.png");
+    loadSprite("tt_epinard","sprites/icones/tt_epinard.png");
+    loadSprite("tt_fenouil","sprites/icones/tt_fenouil.png");
+    loadSprite("tt_figue","sprites/icones/tt_figue.png");
+    loadSprite("tt_fraise","sprites/icones/tt_fraise.png");
+    loadSprite("tt_framboise","sprites/icones/tt_framboise.png");
+    loadSprite("tt_haricot","sprites/icones/tt_haricot.png");
+    loadSprite("tt_kiwi","sprites/icones/tt_kiwi.png");
+    loadSprite("tt_laitue","sprites/icones/tt_laitue.png");
+    loadSprite("tt_mais","sprites/icones/tt_mais.png");
+    loadSprite("tt_mure","sprites/icones/tt_mure.png");
+    loadSprite("tt_myrtille","sprites/icones/tt_myrtille.png");
+    loadSprite("tt_nectarine","sprites/icones/tt_nectarine.png");
+    loadSprite("tt_onion","sprites/icones/tt_onion.png");
+    loadSprite("tt_patate","sprites/icones/tt_patate.png");
+    loadSprite("tt_peche","sprites/icones/tt_peche.png");
+    loadSprite("tt_poire","sprites/icones/tt_poire.png");
+    loadSprite("tt_poireau","sprites/icones/tt_poireau.png");
+    loadSprite("tt_poivron","sprites/icones/tt_poivron.png");
+    loadSprite("tt_pomme","sprites/icones/tt_pomme.png");
+    loadSprite("tt_prune","sprites/icones/tt_prune.png");
+    loadSprite("tt_raisin","sprites/icones/tt_raisin.png");
+    loadSprite("tt_raisinet","sprites/icones/tt_raisinet.png");
+    loadSprite("tt_salade","sprites/icones/tt_salade.png");
+    loadSprite("tt_tomate","sprites/icones/tt_tomate.png");
+    
     collectables = {};
     //arbres
-    collectables["cerise"] = new Colletable("cerise", "arbre", 6, 8, 14, 0); //rappel: "fruit", "parent", start, end, score (CHF/kg), offset
-    collectables["pomme"] = new Colletable("pomme", "arbre", 6, 10, 4, 0);
-    collectables["poire"] = new Colletable("poire", "arbre", 6, 11, 4, 0);
-    collectables["prune"] = new Colletable("prune", "arbre", 8, 9, 6, 0);
-    collectables["abricot"] = new Colletable("abricot", "arbre", 6, 9, 10, 0);
-    collectables["kiwi"] = new Colletable("kiwi", "arbre", 9, 11, 8, 0);
-    collectables["nectarine"] =new Colletable("nectarine", "arbre", 7, 8, 10, 0);
-    collectables["figue"] =new Colletable("figue","arbre",7, 9, 45,0);
-    collectables["peche"] =new Colletable("peche","arbre", 7, 8, 6, 0);
+    collectables["cerise"] = new Collectable("cerise", "arbre", "tt_cerise", 6, 8, 14, 0); //rappel: "fruit", "parent", "icon", start, end, score (CHF/kg), offset
+    collectables["pomme"] = new Collectable("pomme", "arbre", "tt_pomme", 6, 10, 4, 0);
+    collectables["poire"] = new Collectable("poire", "arbre", "tt_poire", 6, 11, 4, 0);
+    collectables["prune"] = new Collectable("prune", "arbre", "tt_prune", 8, 9, 6, 0);
+    collectables["abricot"] = new Collectable("abricot", "arbre", "tt_abricot", 6, 9, 10, 0);
+    collectables["kiwi"] = new Collectable("kiwi", "arbre", "tt_kiwi", 9, 11, 8, 0);
+    collectables["nectarine"] = new Collectable("nectarine", "arbre", "tt_nectarine", 7, 8, 10, 0);
+    collectables["figue"] = new Collectable("figue","arbre", "tt_figue",7, 9, 45,0);
+    collectables["peche"] = new Collectable("peche","arbre", "tt_peche", 7, 8, 6, 0);
 
     //buissons
-    collectables["fraise"] = new Colletable("fraise", "buisson", 5, 9, 18, 0);
-    collectables["framboise"] = new Colletable("framboise", "buisson", 6, 9, 27, 0);
-    collectables["myrtille"] = new Colletable("myrtille", "buisson", 7, 8, 24, 0);
-    collectables["tomate"] = new Colletable("tomate", "buisson", 6, 10, 5, 0);
-    collectables["cassis"] =new Colletable("cassis","buisson",7,8,19,0);
-    collectables["mure"] =new Colletable("mure","buisson", 7, 9, 20, 0);
-    collectables["raisin"] =new Colletable("raisin","buisson", 8, 9, 7, 0);
-    collectables["raisinet"] =new Colletable("raisinet","buisson", 7, 8, 20, 0);
-    collectables["aubergine"] =new Colletable("aubergine","buisson", 7, 10, 6, 0);
-    collectables["haricot"] =new Colletable("haricot","buisson", 6, 10, 9, 0);
-    collectables["poivron"] =new Colletable("poivron","buisson", 6, 10, 3, 0);
-    collectables["concombre"] =new Colletable("concombre","buisson_cucurb", 5, 10, 5, 0);
-    collectables["courge"] =new Colletable("courge","buisson_cucurb", 8, 10, 5, 0);
-    collectables["courgette"] =new Colletable("courgette","buisson_cucurb", 6, 10, 5, 0);
+    collectables["fraise"] = new Collectable("fraise", "buisson", "tt_fraise", 5, 9, 18, 0);
+    collectables["framboise"] = new Collectable("framboise", "buisson", "tt_framboise", 6, 9, 27, 0);
+    collectables["myrtille"] = new Collectable("myrtille", "buisson", "tt_myrtille", 7, 8, 24, 0);
+    collectables["tomate"] = new Collectable("tomate", "buisson", "tt_tomate", 6, 10, 5, 0);
+    collectables["cassis"] = new Collectable("cassis","buisson", "tt_cassis",7,8,19,0);
+    collectables["mure"] = new Collectable("mure","buisson", "tt_mure", 7, 9, 20, 0);
+    collectables["raisin"] = new Collectable("raisin","buisson", "tt_raisin", 8, 9, 7, 0);
+    collectables["raisinet"] = new Collectable("raisinet","buisson", "tt_raisinet", 7, 8, 20, 0);
+    collectables["aubergine"] = new Collectable("aubergine","buisson", "tt_aubergine", 7, 10, 6, 0);
+    collectables["haricot"] = new Collectable("haricot","buisson", "tt_haricot", 6, 10, 9, 0);
+    collectables["poivron"] = new Collectable("poivron","buisson", "tt_poivron", 6, 10, 3, 0);
+    collectables["concombre"] = new Collectable("concombre","buisson_cucurb", "tt_concombre", 5, 10, 5, 0);
+    collectables["courge"] = new Collectable("courge","buisson_cucurb", "tt_courge", 8, 10, 5, 0);
+    collectables["courgette"] = new Collectable("courgette","buisson_cucurb", "tt_courgette", 6, 10, 5, 0);
 
     //racines
-    collectables["carotte"] = new Colletable("carotte", "carotte_trou",5,11,3,50);
-    collectables["oignon"]= new Colletable("oignon","oignon_trou", 6,10,2,50);
-    collectables["endive"] =new Colletable("endive","endive_trou", 11, 12, 5, 0);
-    collectables["endive2"] =new Colletable("endive","endive_trou", 1, 4, 5, 0);
-    collectables["ail"] =new Colletable("ail","ail_trou", 4, 5, 13, 0);
-    collectables["ail2"] =new Colletable("ail","ail_trou", 7, 8, 13, 0);
-    collectables["betterave"] =new Colletable("betterave","betterave_trou", 7, 11, 4, 0);
-    collectables["brocoli"] =new Colletable("brocoli","brocoli_trou", 5, 11, 7, 0);
-    collectables["chouFleur"] =new Colletable("chouFleur","chouFleur_trou", 5, 11, 5, 0);
-    collectables["chou"] =new Colletable("chou","chou_trou", 4, 12, 4, 0);
-    collectables["epinard"] =new Colletable("epinard","epinard_trou", 3, 6, 8, 0);
-    collectables["epinard2"] =new Colletable("epinard","epinard_trou", 10, 12, 8, 0);
-    collectables["fenouil"] =new Colletable("fenouil","fenouil_trou", 5, 11, 6, 0);
-    collectables["laitue"] =new Colletable("laitue","laitue_trou", 4, 11, 6, 0);
-    collectables["poireau"] =new Colletable("poireau","poireau_trou", 1, 12, 5, 0);
-    collectables["salade"] =new Colletable("salade","salade_trou", 4, 11, 3, 0);
-    collectables["asperge"] =new Colletable("asperge","asperge_racine", 4, 6, 22, 0);
-    collectables["patate"] =new Colletable("patate","patate_trou", 6, 10, 2, 0);
+    collectables["carotte"] = new Collectable("carotte", "carotte_trou", "tt_carotte", 5,11,3,50);
+    collectables["oignon"] = new Collectable("oignon","oignon_trou", "tt_oignon",  6,10,2,50);
+    collectables["endive"] = new Collectable("endive","endive_trou", "tt_endive",  11, 12, 5, 0);
+    collectables["endive2"] = new Collectable("endive","endive_trou", "tt_endive",  1, 4, 5, 0);
+    collectables["ail"] = new Collectable("ail","ail_trou", "tt_ail",  4, 5, 13, 0);
+    collectables["ail2"] = new Collectable("ail","ail_trou", "tt_ail",  7, 8, 13, 0);
+    collectables["betterave"] = new Collectable("betterave","betterave_trou", "tt_betterave",  7, 11, 4, 0);
+    collectables["brocoli"] = new Collectable("brocoli","brocoli_trou", "tt_brocoli",  5, 11, 7, 0);
+    collectables["chouFleur"] = new Collectable("chouFleur","chouFleur_trou", "tt_chouFleur",  5, 11, 5, 0);
+    collectables["chou"] = new Collectable("chou","chou_trou", "tt_chou",  4, 12, 4, 0);
+    collectables["epinard"] = new Collectable("epinard","epinard_trou", "tt_epinard",  3, 6, 8, 0);
+    collectables["epinard2"] = new Collectable("epinard","epinard_trou", "tt_epinard",  10, 12, 8, 0);
+    collectables["fenouil"] = new Collectable("fenouil","fenouil_trou", "tt_fenouil",  5, 11, 6, 0);
+    collectables["laitue"] = new Collectable("laitue","laitue_trou", "tt_laitue",  4, 11, 6, 0);
+    collectables["poireau"] = new Collectable("poireau","poireau_trou", "tt_poireau",  1, 12, 5, 0);
+    collectables["salade"] = new Collectable("salade","salade_trou", "tt_salade",  4, 11, 3, 0);
+    collectables["asperge"] = new Collectable("asperge","asperge_racine", "tt_asperge",  4, 6, 22, 0);
+    collectables["patate"] = new Collectable("patate","patate_trou", "tt_patate",  6, 10, 2, 0);
+    collectables["maisDoux"] = new Collectable("mais","mais_trou", "tt_mais",  8, 10, 6, 0);
+    //brusselSprout Insanity
+    collectables["chouBruxelles1"] = new Collectable("chouBruxellesPetit","chouBruxellesPetit_base", "tt_chouBruxelles", 9, 10, 7, 0);
+    collectables["chouBruxelles2"] = new Collectable("chouBruxellesMoyen","chouBruxellesMoyen_base", "tt_chouBruxelles", 11, 12, 8, 0);
+    collectables["chouBruxelles3"] = new Collectable("chouBruxellesGrand","chouBruxellesGrand_base", "tt_chouBruxelles", 1, 2, 8, 0);
+    collectables["chouBruxelles4"] = new Collectable("chouBruxellesGrandFin","chouBruxellesGrandFin_trou", "tt_chouBruxelles", 3, 3, 8, 0);
 
-    //todo collectables 
-    //to draw
+    /// let's gooooo
+    seeds = {}
+    seeds["cerise"] = new Seed("arbre_pousse", "tt_cerise", 0, 0, 0, 0); //rappel: "pousse_fruit", "icon", start, end, score (CHF/kg), offset
+  
     
-    collectables["maisDoux"] =new Colletable("maisDoux","maisDoux_base", 8, 10, 6, 0);
-    
-    collectables["chouBruxelles2"] =new Colletable("chouBruxelles","chouBruxelles_base", 9, 11, 7, 0);
-    collectables["chouBruxelles1"] =new Colletable("chouBruxelles","chouBruxelles_base", 1, 3, 8, 0);
-    collectables["chouBruxelles3"] =new Colletable("chouBruxelles","chouBruxelles_trou", 12, 12, 8, 0);
-    //brussel sprouts and corn will need a separate canvas; very tall.
 
     player1_sprite = add([pos(player_startX, 395), sprite("player"), z(5), anchor("bot")])
     player1_sprite.play("idle")
