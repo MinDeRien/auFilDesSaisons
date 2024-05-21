@@ -214,8 +214,8 @@ export function GameScene() {
     //on charge les racines
     loadSprite("carotte", "sprites/racine/carotte.png");
     loadSprite("carotte_trou", "sprites/racine/carotte_trou.png");
-    loadSprite("oignon","sprites/racine/oignon.png");
-    loadSprite("oignon_trou", "sprites/racine/oignon_trou.png");
+    loadSprite("onion","sprites/racine/oignon.png");
+    loadSprite("onion_trou", "sprites/racine/oignon_trou.png");
     loadSprite("endive","sprites/racine/endive.png");
     loadSprite("endive_trou", "sprites/racine/endive_trou.png");
     loadSprite("ail","sprites/racine/ail.png");
@@ -315,7 +315,7 @@ export function GameScene() {
     collectables["fraise"] = new Collectable("fraise", "buisson", "tt_fraise", 5, 9, 18, 0);
     collectables["framboise"] = new Collectable("framboise", "buisson", "tt_framboise", 6, 9, 27, 0);
     collectables["myrtille"] = new Collectable("myrtille", "buisson", "tt_myrtille", 7, 8, 24, 0);
-    collectables["tomate"] = new Collectable("tomate", "buisson", "tt_tomate", 6, 10, 5, 0);
+    collectables["tomate"] = new Collectable("tomate", "buisson", "tt_tomate", 7, 10, 5, 0);
     collectables["cassis"] = new Collectable("cassis","buisson", "tt_cassis",7,8,19,0);
     collectables["mure"] = new Collectable("mure","buisson", "tt_mure", 7, 9, 20, 0);
     collectables["raisin"] = new Collectable("raisin","buisson", "tt_raisin", 8, 9, 7, 0);
@@ -323,24 +323,24 @@ export function GameScene() {
     collectables["aubergine"] = new Collectable("aubergine","buisson", "tt_aubergine", 7, 10, 6, 0);
     collectables["haricot"] = new Collectable("haricot","buisson", "tt_haricot", 6, 10, 9, 0);
     collectables["poivron"] = new Collectable("poivron","buisson", "tt_poivron", 6, 10, 3, 0);
-    collectables["concombre"] = new Collectable("concombre","buisson_cucurb", "tt_concombre", 5, 10, 5, 0);
+    collectables["concombre"] = new Collectable("concombre","buisson_cucurb", "tt_concombre", 5, 9, 5, 0);
     collectables["courge"] = new Collectable("courge","buisson_cucurb", "tt_courge", 8, 10, 5, 0);
     collectables["courgette"] = new Collectable("courgette","buisson_cucurb", "tt_courgette", 6, 10, 5, 0);
 
     //racines
     collectables["carotte"] = new Collectable("carotte", "carotte_trou", "tt_carotte", 5,11,3,50);
-    collectables["oignon"] = new Collectable("oignon","oignon_trou", "tt_oignon",  6,10,2,50);
+    collectables["oinion"] = new Collectable("onion","onion_trou", "tt_oignon",  6,10,2,50);
     collectables["endive"] = new Collectable("endive","endive_trou", "tt_endive",  11, 12, 5, 0);
     collectables["endive2"] = new Collectable("endive","endive_trou", "tt_endive",  1, 4, 5, 0);
     collectables["ail"] = new Collectable("ail","ail_trou", "tt_ail",  4, 5, 13, 0);
     collectables["ail2"] = new Collectable("ail","ail_trou", "tt_ail",  7, 8, 13, 0);
     collectables["betterave"] = new Collectable("betterave","betterave_trou", "tt_betterave",  7, 11, 4, 0);
-    collectables["brocoli"] = new Collectable("brocoli","brocoli_trou", "tt_brocoli",  5, 11, 7, 0);
+    collectables["brocoli"] = new Collectable("brocoli","brocoli_trou", "tt_brocoli",  7, 11, 7, 0);
     collectables["chouFleur"] = new Collectable("chouFleur","chouFleur_trou", "tt_chouFleur",  5, 11, 5, 0);
     collectables["chou"] = new Collectable("chou","chou_trou", "tt_chou",  4, 12, 4, 0);
     collectables["epinard"] = new Collectable("epinard","epinard_trou", "tt_epinard",  3, 6, 8, 0);
     collectables["epinard2"] = new Collectable("epinard","epinard_trou", "tt_epinard",  10, 12, 8, 0);
-    collectables["fenouil"] = new Collectable("fenouil","fenouil_trou", "tt_fenouil",  5, 11, 6, 0);
+    collectables["fenouil"] = new Collectable("fenouil","fenouil_trou", "tt_fenouil",  5, 10, 6, 0);
     collectables["laitue"] = new Collectable("laitue","laitue_trou", "tt_laitue",  4, 11, 6, 0);
     collectables["poireau"] = new Collectable("poireau","poireau_trou", "tt_poireau",  1, 12, 5, 0);
     collectables["salade"] = new Collectable("salade","salade_trou", "tt_salade",  4, 11, 3, 0);
@@ -353,12 +353,69 @@ export function GameScene() {
     collectables["chouBruxelles3"] = new Collectable("chouBruxellesGrand","chouBruxellesGrand_base", "tt_chouBruxelles", 1, 2, 8, 0);
     collectables["chouBruxelles4"] = new Collectable("chouBruxellesGrandFin","chouBruxellesGrandFin_trou", "tt_chouBruxelles", 3, 3, 8, 0);
 
-    /// let's gooooo
+    /// LES GRAINES
     seeds = {}
-    seeds["cerise"] = new Seed("arbre_pousse", "tt_cerise", 0, 0, 0, 0); //rappel: "pousse_fruit", "icon", start, end, score (CHF/kg), offset
-  
-    
-
+    seeds["abricot"] = new Seed("arbre_pousse", "tt_abricot", 11, 12, 12, 0);
+    seeds["abricot2"] = new Seed("arbre_pousse", "tt_abricot", 1, 3, 12, 0); //rappel: "pousse_fruit", "icon", start, end, score (bit random), offset
+    seeds["ail"] = new Seed("pousse", "tt_ail", 10, 11, 13, 0);
+    seeds["ail2"] = new Seed("pousse", "tt_ail", 2, 3, 13, 0);
+    seeds["asperge"] = new Seed("pousse", "tt_asperge", 3, 6, 22, 0);
+    seeds["aubergine"] = new Seed("buisson_pousse", "tt_aubergine", 5, 5, 7, 0);
+    seeds["betterave"] = new Seed("pousse", "tt_betterave", 4, 6, 4, 0);
+    seeds["brocoli"] = new Seed("pousse", "tt_brocoli", 4, 6, 7, 0);
+    seeds["carotte"] = new Seed("pousse", "tt_carotte", 2, 7, 3, 0);
+    seeds["cassis"] = new Seed("buisson_pousse", "tt_cassis", 11, 12, 15, 0);
+    seeds["cassis2"] = new Seed("buisson_pousse", "tt_cassis", 1, 3, 15, 0);
+    seeds["cerise"] = new Seed("arbre_pousse", "tt_cerise", 11, 12, 14, 0);
+    seeds["cerise2"] = new Seed("arbre_pousse", "tt_cerise", 1, 3, 14, 0);
+    seeds["chou"] = new Seed("pousse", "tt_chou", 5, 6, 4, 0);
+    seeds["chouBruxelles"] = new Seed("pousse", "tt_chouBruxelles", 5, 6, 7, 0);
+    seeds["concombre"] = new Seed("buisson_pousse", "tt_concombre", 3, 5, 6, 0);
+    seeds["courge"] = new Seed("buisson_pousse", "tt_courge", 4, 5, 4, 0);
+    seeds["courgette"] = new Seed("buisson_pousse", "tt_courgette", 4, 5, 4, 0);
+    seeds["endive"] = new Seed("pousse", "tt_endive", 4, 6, 5, 0);
+    seeds["epinard"] = new Seed("pousse", "tt_epinard", 3, 4, 8, 0);
+    seeds["epinard2"] = new Seed("pousse", "tt_epinard", 7, 8, 8, 0);
+    seeds["fenouil"] = new Seed("pousse", "tt_fenouil", 2, 7, 7, 0);
+    seeds["figue"] = new Seed("arbre_pousse", "tt_figue", 11, 12, 45, 0);
+    seeds["figue2"] = new Seed("arbre_pousse", "tt_figue", 1, 3, 45, 0);
+    seeds["fraise"] = new Seed("buisson_pousse", "tt_fraise", 8, 12, 18, 0);
+    seeds["fraise2"] = new Seed("buisson_pousse", "tt_fraise", 1, 3, 18, 0);
+    seeds["framboise"] = new Seed("buisson_pousse", "tt_framboise", 11, 12, 25, 0);
+    seeds["framboise2"] = new Seed("buisson_pousse", "tt_framboise", 1, 3, 25, 0);
+    seeds["haricot"] = new Seed("buisson_pousse", "tt_haricot", 5, 7, 9, 0);
+    seeds["kiwi"] = new Seed("arbre_pousse", "tt_kiwi", 11, 12, 8, 0);
+    seeds["kiwi2"] = new Seed("arbre_pousse", "tt_kiwi", 1, 3, 8, 0);
+    seeds["laitue"] = new Seed("pousse", "tt_laitue", 3, 8, 6, 0);
+    seeds["mais"] = new Seed("pousse", "tt_mais", 0, 0, 5, 0);
+    seeds["mure"] = new Seed("buisson_pousse", "tt_mure", 11, 12, 20, 0);
+    seeds["mure2"] = new Seed("buisson_pousse", "tt_mure", 1, 3, 20, 0);
+    seeds["myrtille"] = new Seed("buisson_pousse", "tt_myrtille", 11, 12, 24, 0);
+    seeds["myrtille2"] = new Seed("buisson_pousse", "tt_myrtille", 1, 3, 24, 0);
+    seeds["nectarine"] = new Seed("arbre_pousse", "tt_nectarine", 11, 12, 5, 0);
+    seeds["nectarine2"] = new Seed("arbre_pousse", "tt_nectarine", 1, 3, 5, 0);
+    seeds["onion"] = new Seed("pousse", "tt_onion", 3, 4, 2, 0);
+    seeds["patate"] = new Seed("pousse", "tt_patate", 0, 0, 1, 0);
+    seeds["peche"] = new Seed("arbre_pousse", "tt_peche", 11, 12, 4, 0);
+    seeds["peche2"] = new Seed("arbre_pousse", "tt_peche", 1, 3, 4, 0);
+    seeds["poire"] = new Seed("arbre_pousse", "tt_poire", 11, 12, 4, 0);
+    seeds["poire2"] = new Seed("arbre_pousse", "tt_poire", 1, 3, 4, 0);
+    seeds["poireau"] = new Seed("pousse", "tt_poireau", 3, 4, 5, 0);
+    seeds["poireau2"] = new Seed("pousse", "tt_poireau", 6, 6, 5, 0);
+    seeds["poivron"] = new Seed("pousse", "tt_poivron", 2, 3, 3, 0);
+    seeds["poivron2"] = new Seed("buisson_pousse", "tt_poivron", 5, 5, 3, 0);
+    seeds["pomme"] = new Seed("arbre_pousse", "tt_pomme", 11, 12, 4, 0);
+    seeds["pomme2"] = new Seed("arbre_pousse", "tt_pomme", 1, 3, 4, 0);
+    seeds["prune"] = new Seed("arbre_pousse", "tt_prune", 1, 3, 5, 0);
+    seeds["prune2"] = new Seed("arbre_pousse", "tt_prune", 11, 12, 5, 0);
+    seeds["raisin"] = new Seed("buisson_pousse", "tt_raisin", 11, 12, 7, 0);
+    seeds["raisin2"] = new Seed("buisson_pousse", "tt_raisin", 1, 3, 7, 0);
+    seeds["raisinet"] = new Seed("buisson_pousse", "tt_raisinet", 11, 12, 20, 0);
+    seeds["raisinet2"] = new Seed("buisson_pousse", "tt_raisinet", 1, 3, 20, 0);
+    seeds["salade"] = new Seed("pousse", "tt_salade", 3, 9, 2, 0);
+    seeds["tomate"] = new Seed("pousse", "tt_tomate", 3, 3, 5, 0);
+    seeds["tomate2"] = new Seed("buisson_pousse", "tt_tomate", 5, 5, 5, 0);
+ 
     player1_sprite = add([pos(player_startX, 395), sprite("player"), z(5), anchor("bot")])
     player1_sprite.play("idle")
     player2_sprite = add([pos(player_startX, 935), sprite("player"), z(5), , anchor("bot")])
