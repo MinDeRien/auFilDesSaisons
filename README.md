@@ -25,7 +25,7 @@ Les renseignements sur les arbres fruitiers ont été donnés par Ivan, de chez 
 
 ## Contributeurices
 
-Ce jeu a été principalement réalisé par Gwenäelle Barillon (Idée, recherche, conception, game design, game art, animation, programmationet une partie de la programmation). 
+Ce jeu a été principalement réalisé par Gwenäelle Barillon (Idée, recherche, conception, game design, game art, animation, et une partie de la programmation). 
 
 Une aide immense a été fournie par Damien Goetschi pour la programmation également. 
 
