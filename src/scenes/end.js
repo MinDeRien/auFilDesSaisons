@@ -17,5 +17,5 @@ export function EndScene({menuMusic, scoreP1, scoreP2}) {
     addButton("Menu", 2, vec2(1160, 950), ()=>k.go("start", {menuMusic: menuMusic}));
 
     k.add([text("Score:", {size: 96, font: "Chalkduster"}), color(rgb(0,0,0)), pos(100, 200), z(3), anchor("left")]);
-    k.add([text(`${Math.round(scoreP1+scoreP2)}`, {size: 180, font: "Chalkduster"}), color(rgb(0,0,0)), pos(1300, 600), z(3), anchor("right")])
+    k.add([text(`${Math.round(scoreP1+scoreP2)}`, {size: 72, font: "indieflower"}), scale(2), color(rgb(0,0,0)), pos(1300, 600), z(3), anchor("right")])
 }

@@ -2,6 +2,7 @@ import { getCollectables } from '../collectables';
 import k from '../kaboom'
 import { music_volume } from '../params';
 import { getSeeds } from '../seeds';
+import { addButton } from '../utils';
 
 class Player {
     constructor(sprite, left_button, right_button, action_button, action, score) {
@@ -120,6 +121,7 @@ export function GameScene({year, scoreP1, scoreP2, music}) {
 
     collect = (item_to_collect) => {
         idx = to_collect.indexOf(item_to_collect);
+        console.log(idx);
         to_collect.splice(idx, 1);
         item_to_collect.object.removeAll();
         return item_to_collect.name;
@@ -164,7 +166,7 @@ export function GameScene({year, scoreP1, scoreP2, music}) {
             }else{
                 music.stop();
                 music=null;
-                k.go("quiz", {menuMusic: null});
+                k.go("quiz", {menuMusic: null, scoreP1: player1.score, scoreP2: player2.score});
             }
             return;
         };
@@ -301,7 +303,7 @@ export function GameScene({year, scoreP1, scoreP2, music}) {
     k.add([sprite("panneau"), pos(84, 350), anchor("bot"), z(6)])
     k.add([sprite("silo"), pos(84,1090), anchor("bot"), z(7)])
     k.add([sprite("recoltes"), pos(1500,590), anchor("top"), z(8)])
-    k.add([sprite("semailles"), pos(0,520), anchor("left"), z(8)])
+    k.add([sprite("semailles"), pos(10,540), anchor("left"), z(8)])
 
     players.forEach((player)=>{
         player.sprite.onUpdate(() => {
@@ -354,7 +356,6 @@ export function GameScene({year, scoreP1, scoreP2, music}) {
 
     onKeyDown(player1.action_button, () => {
         if(player1.can_move){
-            itemToCollect = null;
             var player_sow = false;
             // check tonneau
             if(player1.sprite.pos.x<50){
@@ -453,7 +454,13 @@ export function GameScene({year, scoreP1, scoreP2, music}) {
     newMonth(0);
     if(music==null){
         music = play("hiver", {
-            loop: true
+            loop: true, volume: music_volume
         })
     }
+
+    addButton("", 3, vec2(1850, 50), ()=>{
+        music.stop();
+        k.go("start", {menuMusic: null});
+    });
+
 }

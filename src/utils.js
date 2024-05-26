@@ -3,7 +3,8 @@ export function addButton(txt, v, p, f) {
         sprite(`button${v}`),
         pos(p),
         area(),
-        anchor("center")
+        anchor("center"),
+        scale(v==3?0.5:1)
     ])
     
     const bt_text = btn.add([

@@ -15,6 +15,8 @@ export function LoadAssets(){
     loadSprite("button1_hover", "sprites/button1_hover.png");
     loadSprite("button2", "sprites/button2.png");
     loadSprite("button2_hover", "sprites/button2_hover.png");
+    loadSprite("button3", "sprites/button3.png");
+    loadSprite("button3_hover", "sprites/button3_hover.png");
 
     // load quiz assets
     loadSprite("player1_quiz", "sprites/player1_quiz.png");

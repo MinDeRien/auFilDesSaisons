@@ -13,9 +13,10 @@ export function CreditsScene({menuMusic}) {
     Game design: Gwenäelle Barillon
 
     Programmation: Damien Goetschi 
-                    Gwenäelle Barillon
+                    et Gwenäelle Barillon
     
     Game Art: Gwenäelle Barillon
+
     Animation: Gwenäelle Barillon
     
     Image du début, de fin, et paysan de profil basés
@@ -26,7 +27,7 @@ export function CreditsScene({menuMusic}) {
     Musiques: pack Season Cycle par Steve Base Music sur itch.io
 
     Effets sonores: pixabay.com et opengameart.com,
-                    édités par Gwenäelle Barillon
+                        puis édités par Gwenäelle Barillon
     
     Informations arbres fruitiers: Arbothévoz
     
@@ -35,6 +36,7 @@ export function CreditsScene({menuMusic}) {
     
     Jeu réalisé durant le cours "Développement de Jeu vidéo 2D"
     Encadré par Isaac Pante et Johan Cuda
+
     Unil (Université de Lausanne), semestre de printemps 2024`
 
     k.add([text(creditText, {size: 32, font: "indieflower"}), color(rgb(0,0,0)), pos(980, 80), anchor("top")])

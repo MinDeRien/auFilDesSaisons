@@ -85,7 +85,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
             questionP1.user_bonus = 0.5;
         }
         if(questionP2.user_answer!=null){
-            wait(3, () => {
+            wait(1, () => {
                 k.go("end", {scoreP1: scoreP1*questionP1.user_bonus, scoreP2: scoreP2*questionP2.user_bonus, menuMusic: menuMusic});
             })
         }
@@ -104,7 +104,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
             play("defaite")
         }
         if(questionP1.user_answer!=null){
-            wait(3, () => {
+            wait(1, () => {
                 k.go("end", {scoreP1: scoreP1*questionP1.user_bonus, scoreP2: scoreP2*questionP2.user_bonus, menuMusic: menuMusic});
             })
         }
@@ -122,27 +122,29 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
     k.add([text(`Peut on recolter ${questionP2.name} en ${months_labels[questionP2.month_question-1]} ?`, {font: "chalkboard", size: 54}), color(rgb(0,0,0)), pos(960, 675), anchor("center"), z(4)]);
     var quizp2 = k.add([sprite("player2_quiz"), pos(960, 850), anchor("center"), z(2)]);
 
-    onKeyDown("a", () => {
-        if(questionP1.user_answer==null){
-            user1_response(true);
-        }
-    });
+    wait(1, () => {
+        onKeyDown("a", () => {
+            if(questionP1.user_answer==null){
+                user1_response(true);
+            }
+        });
 
-    onKeyDown("d", () => {
-        if(questionP1.user_answer==null){
-            user1_response(false);
-        }
-    });
+        onKeyDown("d", () => {
+            if(questionP1.user_answer==null){
+                user1_response(false);
+            }
+        });
 
-    onKeyDown("j", () => {
-        if(questionP2.user_answer==null){
-            user2_response(true);
-        }
-    });
+        onKeyDown("j", () => {
+            if(questionP2.user_answer==null){
+                user2_response(true);
+            }
+        });
 
-    onKeyDown("l", () => {
-        if(questionP2.user_answer==null){
-            user2_response(false);
-        }
+        onKeyDown("l", () => {
+            if(questionP2.user_answer==null){
+                user2_response(false);
+            }
+        });
     });
 }
