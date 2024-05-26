@@ -1,40 +1,28 @@
-export function addButton(txt, p, f) {
-
-    // add a parent background object
+export function addButton(txt, v, p, f) {
     const btn = add([
-        rect(240, 80, { radius: 8 }),
+        sprite(`button${v}`),
         pos(p),
         area(),
-        scale(1),
-        anchor("center"),
-        outline(4),
+        anchor("center")
     ])
-
-    // add a child object that displays the text
-    btn.add([
-        text(txt),
+    
+    const bt_text = btn.add([
+        text(txt, {font: "Chalkduster", size: 64}),
         anchor("center"),
         color(0, 0, 0),
     ])
-
-    // onHoverUpdate() comes from area() component
-    // it runs every frame when the object is being hovered
+    
     btn.onHoverUpdate(() => {
-        const t = time() * 10
-        btn.color = hsl2rgb((t / 10) % 1, 0.6, 0.7)
-        btn.scale = vec2(1.2)
+        btn.use(sprite(`button${v}_hover`)),
+        bt_text.color = rgb(255,255,255),
         setCursor("pointer")
     })
-
-    // onHoverEnd() comes from area() component
-    // it runs once when the object stopped being hovered
+    
     btn.onHoverEnd(() => {
-        btn.scale = vec2(1)
-        btn.color = rgb()
+        btn.use(sprite(`button${v}`)),
+        bt_text.color = rgb(0,0,0)
     })
 
-    // onClick() comes from area() component
-    // it runs once when the object is clicked
     btn.onClick(f)
 
     return btn

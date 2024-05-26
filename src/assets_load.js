@@ -3,6 +3,25 @@ export function LoadAssets(){
     bg_nb = 12;
     part_by_bg = 2;
 
+    loadFont("chalkduster", "fonts/Chalkduster.ttf");
+    loadFont("chalkboard", "fonts/ChalkBoard.ttf");
+    loadFont("indieflower", "fonts/IndieFlower-Regular.ttf");
+
+    loadSprite("title_screen", "sprites/title_screen.png");
+    loadSprite("credits_screen", "sprites/credits_screen.png");
+    loadSprite("quiz_screen", "sprites/quiz_screen.png");
+    loadSprite("end_screen", "sprites/end_screen.png");
+    loadSprite("button1", "sprites/button1.png");
+    loadSprite("button1_hover", "sprites/button1_hover.png");
+    loadSprite("button2", "sprites/button2.png");
+    loadSprite("button2_hover", "sprites/button2_hover.png");
+
+    // load quiz assets
+    loadSprite("player1_quiz", "sprites/player1_quiz.png");
+    loadSprite("player2_quiz", "sprites/player2_quiz.png");
+    loadSprite("quiz_faux", "sprites/quiz_faux.png");
+    loadSprite("quiz_juste", "sprites/quiz_juste.png");
+
     loadAseprite("player", "sprites/player1.png", "sprites/player1.json");
     //LOAD DA PLANTS
     //chargement des arbres
@@ -129,19 +148,14 @@ export function LoadAssets(){
     loadSprite("tt_salade","sprites/icones/tt_salade.png");
     loadSprite("tt_tomate","sprites/icones/tt_tomate.png");
 
-    // loadMusic not in this version of Kaboom, strange...
-    loadSound("hiver", "music/hiver.mp3");
-    loadSound("printemps", "music/printemps.mp3");
-    loadSound("ete", "music/ete.mp3");
-    loadSound("automne", "music/automne.mp3");
-    loadSound("all", "music/all.mp3");
-
     loadSprite("bandeau", "sprites/decor.png");
     loadSprite("panneau", "sprites/panneau.png");
     loadSprite("tonneaux", "sprites/tonneaux.png");
     loadSprite("silo", "sprites/silo.png");
     loadSprite("tunnel_back","sprites/tunnel_back.png");
     loadSprite("tunnel_front","sprites/tunnel_front.png");
+    loadSprite("recoltes", "sprites/recoltes.png");
+    loadSprite("semailles", "sprites/semailles.png");
 
     // load top backgrounds
     for (var i = 1; i <= bg_nb; i++) {
@@ -150,4 +164,17 @@ export function LoadAssets(){
         }
         loadSprite(`arbre_saison_${i}`, `sprites/arbre_saison/${i}.png`)
     }
+
+    // loadMusic not in this version of Kaboom, strange...
+    loadSound("hiver", "music/hiver.mp3");
+    loadSound("printemps", "music/printemps.mp3");
+    loadSound("ete", "music/ete.mp3");
+    loadSound("automne", "music/automne.mp3");
+    loadSound("all", "music/all.mp3");
+
+    loadSound("pas", "sounds/son_pas.mp3");
+    loadSound("graines", "sounds/graines.mp3");
+    loadSound("pop", "sounds/pop.mp3");
+    loadSound("defaite", "sounds/defaite.mp3");
+    loadSound("victoire", "sounds/victoire.mp3");
 }
