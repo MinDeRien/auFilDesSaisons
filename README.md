@@ -36,3 +36,19 @@ Et un immense, immense merci à la Swiss Game Academy (https://gameacademy.ch/SG
 
 ## Développement futur
 J'aimerais pouvoir peaufiner un peu plus les animations, les visuels, le son, et j'espère pouvoir rendre le catalogue de fruits et légumes plus complet et plus exact. On verra si je reviens sur ce jeu un jour.
+
+## Comment y jouer?
+Vous pouvez suivre le lien suivant: https://vscode-min.damieng002.dev/game/ ou alors suivre la procédure suivante: 
+1. Télécharger le zip
+2. Dézipper le zip, puis ouvrir le dossier dans Visual Studio Code. 
+3. Dans le terminal de Visual Studio Code: 
+
+4. Installer les dépendances:
+```sh
+$ npm install
+```
+5. Lancer le serveur de développement:
+```sh
+$ npm run dev
+```
+6. Ouvrir l'adresse indiquée dans votre navigateur
