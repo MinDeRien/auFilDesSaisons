@@ -3,7 +3,8 @@
 	"scripts": {
 		"build": "esbuild --bundle src/main.js --outfile=www/main.js --minify",
 		"dev": "esbuild --bundle src/main.js --outfile=www/main.js --servedir=www",
-		"bundle": "npm run build && mkdir -p dist && zip -r dist/game.zip www -x \"**/.DS_Store\""
+		"bundle": "npm run build && mkdir -p dist && zip -r dist/game.zip www -x \"**/.DS_Store\"",
+		"bundle-win": "npm run build && ( IF exist dist ( echo dist exists ) ELSE ( mkdir dist ) ) && powershell Compress-Archive -Force www dist/game.zip"
 	},
 	"dependencies": {
 		"kaboom": "^3000.1.17"
