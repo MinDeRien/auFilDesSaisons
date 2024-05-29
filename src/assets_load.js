@@ -7,16 +7,27 @@ export function LoadAssets(){
     loadFont("chalkboard", "fonts/ChalkBoard.ttf");
     loadFont("indieflower", "fonts/IndieFlower-Regular.ttf");
 
-    loadSprite("title_screen", "sprites/title_screen.png");
+    loadSprite("start_screen", "sprites/start_screen.png");
+    loadSprite("level_select_screen", "sprites/level_select_screen.png");
     loadSprite("credits_screen", "sprites/credits_screen.png");
     loadSprite("quiz_screen", "sprites/quiz_screen.png");
     loadSprite("end_screen", "sprites/end_screen.png");
-    loadSprite("button1", "sprites/button1.png");
-    loadSprite("button1_hover", "sprites/button1_hover.png");
-    loadSprite("button2", "sprites/button2.png");
-    loadSprite("button2_hover", "sprites/button2_hover.png");
-    loadSprite("button3", "sprites/button3.png");
-    loadSprite("button3_hover", "sprites/button3_hover.png");
+    loadSprite("button_1", "sprites/button1.png");
+    loadSprite("button_1_hover", "sprites/button1_hover.png");
+    loadSprite("button_2", "sprites/button2.png");
+    loadSprite("button_2_hover", "sprites/button2_hover.png");
+    loadSprite("button_3", "sprites/button3.png");
+    loadSprite("button_3_hover", "sprites/button3_hover.png");
+    loadSprite("button_hiver", "sprites/button_hiver.png");
+    loadSprite("button_hiver_hover", "sprites/button_hiver_hover.png");
+    loadSprite("button_automne", "sprites/button_automne.png");
+    loadSprite("button_automne_hover", "sprites/button_automne_hover.png");
+    loadSprite("button_ete", "sprites/button_ete.png");
+    loadSprite("button_ete_hover", "sprites/button_ete_hover.png");
+    loadSprite("button_printemps", "sprites/button_printemps.png");
+    loadSprite("button_printemps_hover", "sprites/button_printemps_hover.png");
+    loadSprite("button_random", "sprites/button_random.png");
+    loadSprite("button_random_hover", "sprites/button_random_hover.png");
 
     // load quiz assets
     loadSprite("player1_quiz", "sprites/player1_quiz.png");

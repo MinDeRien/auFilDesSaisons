@@ -10,7 +10,7 @@ export function getCollectables(){
         collectables["abricot"] = new Collectable("abricot", "arbre", "tt_abricot", 6, 9, 10, 0);
         collectables["kiwi"] = new Collectable("kiwi", "arbre", "tt_kiwi", 9, 11, 8, 0);
         collectables["nectarine"] = new Collectable("nectarine", "arbre", "tt_nectarine", 7, 8, 10, 0);
-        collectables["figue"] = new Collectable("figue","arbre", "tt_figue",7, 9, 45,0);
+        //collectables["figue"] = new Collectable("figue","arbre", "tt_figue",7, 9, 45,0); //Gwenäelle ne sait plus où elle a trouver l'info des figues
         collectables["peche"] = new Collectable("peche","arbre", "tt_peche", 7, 8, 6, 0);
 
         //buissons

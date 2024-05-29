@@ -27,8 +27,8 @@ export function getSeeds(){
     seeds["epinard1"] = new Seed("pousse", "tt_epinard", 3, 4, 8, pousse_delta);
     seeds["epinard2"] = new Seed("pousse", "tt_epinard", 7, 8, 8, pousse_delta);
     seeds["fenouil"] = new Seed("pousse", "tt_fenouil", 2, 7, 7, pousse_delta);
-    seeds["figue1"] = new Seed("arbre_pousse", "tt_figue", 11, 12, 45, arbre_delta);
-    seeds["figue2"] = new Seed("arbre_pousse", "tt_figue", 1, 3, 45, arbre_delta);
+    //seeds["figue1"] = new Seed("arbre_pousse", "tt_figue", 11, 12, 45, arbre_delta); //Gwenäelle ne sait plus où elle a trouver l'info des figues
+    //seeds["figue2"] = new Seed("arbre_pousse", "tt_figue", 1, 3, 45, arbre_delta); //Gwenäelle ne sait plus où elle a trouver l'info des figues
     seeds["fraise1"] = new Seed("buisson_pousse", "tt_fraise", 8, 12, 18, 0);
     seeds["fraise2"] = new Seed("buisson_pousse", "tt_fraise", 1, 3, 18, 0);
     seeds["framboise1"] = new Seed("buisson_pousse", "tt_framboise", 11, 12, 25, 0);

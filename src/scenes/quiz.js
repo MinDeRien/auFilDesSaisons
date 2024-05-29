@@ -6,18 +6,19 @@ import { Collectable } from '../types';
 import { addButton } from '../utils';
 
 class QuizQuestion{
-    constructor(name, months, icon){
+    constructor(name, months, months_to_choose, icon){
+        console.log(months_to_choose);
         this.name = name;
         this.months = months;
         this.icon = icon;
-        this.month_question = Math. floor(Math. random()*12) + 1;
+        this.month_question = months_to_choose.sample();
         this.correct_answer = this.months.has(this.month_question);
         this.user_answer = null;
         this.user_bonus = 1;
     }
 }
 
-export function QuizScene({menuMusic, scoreP1, scoreP2}) {
+export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
 
     const months_labels = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
 
@@ -44,7 +45,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
     if (seedName == "chouBruxelles"){
         seedName = "chou de bruxelles";
     }
-    var questionP1 = new QuizQuestion(seedName, seedMonths);
+    var questionP1 = new QuizQuestion(seedName, seedMonths, all_months);
 
     var collectables = getCollectables();
     var collectablesKeys = Object.keys(collectables);
@@ -70,7 +71,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
         collectableName = "chou de bruxelles";
     }
         
-    var questionP2 = new QuizQuestion(collectableName, collectableMonths);
+    var questionP2 = new QuizQuestion(collectableName, collectableMonths, all_months);
 
     user1_response = (response)=>{
         questionP1.user_answer = response;
@@ -123,25 +124,25 @@ export function QuizScene({menuMusic, scoreP1, scoreP2}) {
     var quizp2 = k.add([sprite("player2_quiz"), pos(960, 850), anchor("center"), z(2)]);
 
     wait(1, () => {
-        onKeyDown("a", () => {
+        onKeyDown("y", () => {
             if(questionP1.user_answer==null){
                 user1_response(true);
             }
         });
 
-        onKeyDown("d", () => {
+        onKeyDown("c", () => {
             if(questionP1.user_answer==null){
                 user1_response(false);
             }
         });
 
-        onKeyDown("j", () => {
+        onKeyDown("i", () => {
             if(questionP2.user_answer==null){
                 user2_response(true);
             }
         });
 
-        onKeyDown("l", () => {
+        onKeyDown("p", () => {
             if(questionP2.user_answer==null){
                 user2_response(false);
             }

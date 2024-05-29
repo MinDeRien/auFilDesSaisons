@@ -5,6 +5,7 @@ import { LoadAssets } from './assets_load';
 import { QuizScene } from './scenes/quiz';
 import { CreditsScene } from './scenes/credits';
 import { EndScene } from './scenes/end';
+import { LevelSelectScene } from './scenes/level_select';
 
 Array.prototype.sample = function(){
     return this[Math.floor(Math.random()*this.length)];
@@ -14,6 +15,7 @@ LoadAssets();
 
 k.scene("game", GameScene);
 k.scene("start", StartScene);
+k.scene("level_select", LevelSelectScene);
 k.scene("quiz", QuizScene);
 k.scene("credits", CreditsScene);
 k.scene("end", EndScene);

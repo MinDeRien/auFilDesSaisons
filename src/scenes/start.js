@@ -6,14 +6,10 @@ export function StartScene({menuMusic}) {
         menuMusic = play("all", {loop: true, volume: music_volume})
     }
 
-    k.add([sprite("title_screen")]);
+    k.add([sprite("start_screen")]);
 
-    addButton("Jouer", 1, vec2(1700, 675), ()=>{
-        if(menuMusic!=null){
-            menuMusic.stop();
-            menuMusic=null;
-        }
-        k.go("game", {year: 1, scoreP1: 0, scoreP2: 0, music: null});
+    addButton("Jouer", 1, vec2(1200, 950), ()=>{
+        k.go("level_select", {menuMusic: menuMusic});
     });
 
     k.onUpdate(()=>{
@@ -23,7 +19,7 @@ export function StartScene({menuMusic}) {
         }
     });
 
-    addButton("Crédits", 2, vec2(1700, 900), ()=>{
+    addButton("Crédits", 2, vec2(1650, 950), ()=>{
         k.go("credits", {menuMusic: menuMusic});
     });
 }
