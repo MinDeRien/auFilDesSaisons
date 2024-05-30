@@ -13,10 +13,11 @@ export function addButton(txt, v, p, f, s) {
         color(0, 0, 0),
     ])
     
-    btn.onHoverUpdate(() => {
+    btn.onHover(() => {
         btn.use(sprite(`button_${v}_hover`)),
         bt_text.color = rgb(255,255,255),
         setCursor("pointer")
+        play("hover_button")
     })
     
     btn.onHoverEnd(() => {
@@ -25,7 +26,10 @@ export function addButton(txt, v, p, f, s) {
         setCursor("default")
     })
 
-    btn.onClick(f)
+    btn.onClick(()=>{
+        play("click_button")
+        f()
+    })
 
     return btn
 

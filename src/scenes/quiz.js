@@ -30,7 +30,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
     for(let i=seeds[selectedSeed].start_month; i<=seeds[selectedSeed].end_month; i++){
         seedMonths.add(i);
     }
-    if(selectedSeed.slice(-1)>='1' && selectedSeed.slice(-1)<=9){
+    if(selectedSeed.slice(-1)>='1' && selectedSeed.slice(-1)<='9'){
         seedName = selectedSeed.slice(0,-1);
         seedMonths = new Set();
         for(let i=1; i<=9; i++){
@@ -43,7 +43,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
         }
     }
     if (seedName == "chouBruxelles"){
-        seedName = "chou de bruxelles";
+        seedName = "choux de Bruxelles";
     }
     var questionP1 = new QuizQuestion(seedName, seedMonths, all_months);
 
@@ -55,7 +55,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
     for(let i=collectables[selectedCollectable].start_month; i<=collectables[selectedCollectable].end_month;i++){
         collectableMonths.add(i);
     }
-    if(selectedCollectable.slice(-1)>='1' && selectedCollectable.slice(-1)<=9){
+    if(selectedCollectable.slice(-1)>='1' && selectedCollectable.slice(-1)<='9'){
         collectableName = selectedCollectable.slice(0,-1);
         collectableMonths = new Set();
         for(let i=1; i<=9; i++){
@@ -68,7 +68,7 @@ export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
         }
     }
     if (collectableName == "chouBruxelles"){
-        collectableName = "chou de bruxelles";
+        collectableName = "choux de Bruxelles";
     }
         
     var questionP2 = new QuizQuestion(collectableName, collectableMonths, all_months);
@@ -117,10 +117,10 @@ export function QuizScene({menuMusic, scoreP1, scoreP2, all_months}) {
         menuMusic = play("all",  {loop: true, volume: music_volume})
     }
     k.add([sprite("quiz_screen")]);
-    k.add([text(`Peut on planter ${questionP1.name} en ${months_labels[questionP1.month_question-1]} ?`, {font: "chalkboard", size: 54, lineSpacing: 30}), color(rgb(0,0,0)), pos(960, 125), anchor("center"), z(4)]);
+    k.add([text(`Peut on planter des ${questionP1.name} en ${months_labels[questionP1.month_question-1]} ?`, {font: "chalkboard", size: 54, lineSpacing: 30}), color(rgb(0,0,0)), pos(960, 125), anchor("center"), z(4)]);
     var quizp1 = k.add([sprite("player1_quiz"), pos(960, 300), anchor("center"), z(2)]);
 
-    k.add([text(`Peut on recolter ${questionP2.name} en ${months_labels[questionP2.month_question-1]} ?`, {font: "chalkboard", size: 54}), color(rgb(0,0,0)), pos(960, 675), anchor("center"), z(4)]);
+    k.add([text(`Peut on recolter des ${questionP2.name} en ${months_labels[questionP2.month_question-1]} ?`, {font: "chalkboard", size: 54}), color(rgb(0,0,0)), pos(960, 675), anchor("center"), z(4)]);
     var quizp2 = k.add([sprite("player2_quiz"), pos(960, 850), anchor("center"), z(2)]);
 
     wait(1, () => {

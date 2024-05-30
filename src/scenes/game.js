@@ -18,6 +18,7 @@ class Player {
         this.textCounter = "";
         this.icon = null;
         this.pas = play("pas", {paused: true});
+        this.harvested = "";
     }
   }
 
@@ -74,6 +75,12 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
     var tonneau2 = new Tonneau(75);
     var tonneau3 = new Tonneau(125);
 
+    var sowed_finished = false;
+    var do_animation_sow = false;
+    var anim_sow_timestamp = 0;
+    var anim_harvest_timestamp = 0;
+
+
     // add top and bottom background
     for (var part = 1; part <= part_by_bg; part++) {
         backgrounds_top.push(k.add([
@@ -110,7 +117,6 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
 
     collect = (item_to_collect) => {
         idx = to_collect.indexOf(item_to_collect);
-        console.log(idx);
         to_collect.splice(idx, 1);
         item_to_collect.object.removeAll();
         return item_to_collect.name;
@@ -124,6 +130,16 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
             }
         });
         return res;
+    }
+
+    canSow = (posX) => {
+        ok = true
+        seeds_spawned.forEach((sowed_item)=>{
+            if(posX<sowed_item.pos.x+50 && posX>sowed_item.pos.x-50){
+                ok = false;
+            }
+        });
+        return ok;
     }
 
     addTunnel = (x, y, zFront)=>{
@@ -273,8 +289,21 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
             player.sprite.removeAll();
             // create text and icon
             if(player.counter>0){
-                player.sprite.add([sprite(seeds[player.seed].icon_sprite), z(18), pos(15,-150), anchor('bot'), scale(0.5)]);
-                player.sprite.add([text(player.counter, {size: 32, font: "Chalkduster"}),color(0, 0, 0), z(18), pos(-15,-150), anchor('bot')])
+                player.sprite.add([sprite(seeds[player.seed].icon_sprite), z(18), pos(-15,-150), anchor('bot'), scale(0.5)]);
+                var sinVal = (-10)*Math.sin((new Date().getTime()-anim_sow_timestamp)/50);
+                player.sprite.add([text("x"+player.counter, {size: 32+(do_animation_sow?sinVal:0), font: "Chalkduster"}),color(0, 0, 0), z(18), pos(10,-150), anchor('botleft')])
+                // si on est en train de planter, on change la taille de la font
+                if(do_animation_sow && !sowed_finished){
+                    if(Math.abs(sinVal)<1){
+                        do_animation_sow = false;
+                    }
+                }
+            }
+            if(player.action=="ramasse"){
+                if(player.harvested!=""){
+                    anim_percent = (new Date().getTime()-anim_harvest_timestamp)/800;
+                    tmp = player.sprite.add([sprite(collectables[player.harvested].icon_sprite), z(18), pos(0,-150-(40*anim_percent*anim_percent*anim_percent)), anchor('bot'), scale(0.75), opacity(2-anim_percent*anim_percent*2)]);
+                }
             }
         });
 
@@ -325,6 +354,7 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
                 player1.counter = 5;
             }else{
                 if(player1.counter==0){return}
+                if(canSow(player1.sprite.pos.x)==false){return}
                 player_sow = true;
             }
             play("graines");
@@ -338,9 +368,16 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
                             player1.counter--;
                             addSeed(player1.seed, player1.sprite.pos.x);
                             player1.score += seeds[player1.seed].points;
+                            sowed_finished = true;
+                            do_animation_sow = true;
+                            anim_sow_timestamp = new Date().getTime();
+                            wait(0.2, () => {
+                                sowed_finished = false;
+                            })
                         }
                     }
                     player1.can_move = true;
+                    
                 }
             })
         }
@@ -351,15 +388,21 @@ export function GameScene({scoreP1, scoreP2, music, music_name, all_months, rema
             itemToCollect = null;
             itemToCollect = canCollect(player2.sprite.pos.x);
             if(itemToCollect==null){return}
-            play("pop");
             player2.can_move = false;
+            play("pop");
             player2.sprite.play(player2.action, {
                 loop: false,
                 onEnd: () => {
+                    play("swish");
                     player2.sprite.play("idle");
                     collected_name = collect(itemToCollect);
                     player2.score += collectables[collected_name].points;
                     player2.can_move = true;
+                    player2.harvested = collected_name;
+                    anim_harvest_timestamp = new Date().getTime();
+                    wait(0.8, () => {
+                        player2.harvested = "";
+                    })
                 }
             })
         }

@@ -190,4 +190,7 @@ export function LoadAssets(){
     loadSound("pop", "sounds/pop.mp3");
     loadSound("defaite", "sounds/defaite.mp3");
     loadSound("victoire", "sounds/victoire.mp3");
+    loadSound("click_button", "sounds/click_button.mp3");
+    loadSound("hover_button", "sounds/hover_button.mp3");
+    loadSound("swish", "sounds/swish3.mp3");
 }
